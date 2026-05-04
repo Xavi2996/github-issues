@@ -1,0 +1,29 @@
+<h1>GitHub Issues</h1>
+<div class="my-5 border-b-2 border-blue-600"></div>
+
+<section class="grid grid-cols-1 sm:grid-cols-3">
+  <!-- Btns para controlar el estado -->
+  <div class="col-span-3 flex flex-col">
+    <div class="flex gap-2">
+      <button class="btn active">All</button>
+      <button class="btn">Open</button>
+      <button class="btn">Closed</button>
+    </div>
+  </div>
+
+  <!-- listado de issues -->
+  <div class="mt-4 fleex flex-col col-span-2">
+    <h3>Issues</h3>
+    <a routerLink="/issue/123">Ir a Issue 123</a>
+  </div>
+
+  <!-- lables -->
+  <div>
+    <h2>Labels</h2>
+    @if (labelsQuery.isLoading()) {
+      <p>Cargando</p>
+    } @else {
+      <p>Tenemos labbl</p>
+    }
+  </div>
+</section>
