@@ -1,1 +1,21 @@
-<h3>Issues numer: <small>123</small></h3>
+<h3>
+  Issues numer: <small>{{ issueNumber() }}</small>
+</h3>
+
+<a routerLink="/">Regresar</a>
+
+@if (issueQuery.data() === undefined) {
+  <p>Cargando issue...</p>
+} @else {
+  <app-issue-coment [issue]="issueQuery.data()!"></app-issue-coment>
+}
+
+@if (issueCommentsQuery.isLoading()) {
+  <p>Cargando comentarios...</p>
+} @else {
+  @for (comment of issueCommentsQuery.data(); track comment.id) {
+    <app-issue-coment [issue]="comment"></app-issue-coment>
+  } @empty {
+    <p>No hay comentarios</p>
+  }
+}

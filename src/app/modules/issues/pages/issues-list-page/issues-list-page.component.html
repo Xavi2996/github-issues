@@ -13,17 +13,25 @@
 
   <!-- listado de issues -->
   <div class="mt-4 fleex flex-col col-span-2">
-    <h3>Issues</h3>
-    <a routerLink="/issue/123">Ir a Issue 123</a>
+    @for (issue of issuesQuery.data(); track issue.id) {
+      <app-issue-item [issue]="issue"></app-issue-item>
+    } @empty {
+      @if (issuesQuery.isLoading()) {
+        <p>Cargando...</p>
+      } @else {
+        <p>No hay issues</p>
+      }
+    }
   </div>
 
   <!-- lables -->
   <div>
-    <h2>Labels</h2>
     @if (labelsQuery.isLoading()) {
       <p>Cargando</p>
     } @else {
-      <p>Tenemos labbl</p>
+      <app-labels-selector
+        [labels]="labelsQuery.data() ?? []"
+      ></app-labels-selector>
     }
   </div>
 </section>

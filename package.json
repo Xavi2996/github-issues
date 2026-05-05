@@ -20,6 +20,7 @@
     "@angular/router": "^19.1.0",
     "@tailwindcss/postcss": "^4.2.4",
     "@tanstack/angular-query-experimental": "^5.100.9",
+    "ngx-markdown": "^19.1.0",
     "postcss": "^8.5.13",
     "rxjs": "~7.8.0",
     "tailwindcss": "^4.2.4",
