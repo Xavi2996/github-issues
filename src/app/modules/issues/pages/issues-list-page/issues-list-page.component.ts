@@ -3,6 +3,7 @@ import { RouterLink } from '@angular/router';
 import { IsuuesService } from '../../services/isuues.service';
 import { LabelsSelectorComponent } from '../../components/labels-selector/labels-selector.component';
 import { IssueItemComponent } from '../../components/issue-item/issue-item.component';
+import { State } from '../../interfaces/github-issue.interface';
 
 @Component({
   selector: 'app-issues-list-page',
@@ -19,5 +20,16 @@ export default class IssuesListPageComponent {
 
   get issuesQuery() {
     return this.issuesService.issuesQuery;
+  }
+
+  onChangeState(newstate: string) {
+    const state =
+      {
+        all: State.All,
+        open: State.Open,
+        closed: State.Closed,
+      }[newstate] ?? State.All;
+
+    this.issuesService.showIssuesByState(state);
   }
 }
