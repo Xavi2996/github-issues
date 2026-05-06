@@ -8,6 +8,7 @@ export const getIssueByNumber = async (
   const BASE_URL = environment.baseUrl;
   const GITHUB_TOKEN = environment.githubToken;
 
+  console.log('Get Issue by number called');
   await sleep(1500);
   try {
     const resp = await fetch(`${BASE_URL}/issues/${issueNumber}`, {
